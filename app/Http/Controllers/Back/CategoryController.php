@@ -39,10 +39,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-    // return  $request->all();
-
-       if($request->file('image')){
-           $name = Str::slug($request->file('image')->getClientOriginalName());
+        if($request->file('image')){
+           $name = $request->image->getClientOriginalName();
            $namePath = 'categoriIcon/'.$name;
            $request->image->move(public_path('categoriIcon/',$name));
        }
@@ -91,7 +89,7 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         if($request->file('image')){
-          return  $name = Str::slug($request->file('image')->getClientOriginalName());
+            $name = $request->image->getClientOriginalName();
             $namePath = 'categoriIcon/'.$name;
             $request->image->move(public_path('categoriIcon/',$name));
             $data = ['image'=>$namePath];
