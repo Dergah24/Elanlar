@@ -11,21 +11,24 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = ['title','parent_id','image','slug','main'];
-    protected $appends = ['parent_name'];
+    // protected $appends = ['parent_name'];
 
     /**
      * Get the user that owns the Category
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function parent()
+
+     
+    public function categories()
     {
-        return $this->belongsTo(Category::class, 'parent_id');
+        return $this->hasMany(Category::class,'parent_id');
     }
 
-    public function getParentNameAttribute(){
-        return $this->parent()->value('title');
-    }
+   
+  
     
+
+   
  
 }

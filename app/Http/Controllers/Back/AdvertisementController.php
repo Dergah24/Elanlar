@@ -48,39 +48,27 @@ class AdvertisementController extends Controller
      */
     public function store(AdvStore $request)
     {
-        //return $request->all();
-
-        if($request->quality == "on"){
-            $data =[ 'quality'=>1];
-        }else{
-            $data =[ 'quality'=>0];
-        }
-
-        if($request->delivery == "on"){
-            $data =[ 'delivery'=>1];
-        }else{
-            $data =[ 'delivery'=>0];
-        }
-
-       
+     //return $request->all();
         $data = [
             'user_id'=>Auth::user()->id,
             'cataegory_id'=>$request->category_id,
             'title'=>$request->title,
             'desc'=>$request->desc,
             'price'=>$request->price,
-            'marka'=>$request->marka,
+            'vip'=>($request->vip == "on") ? 1 : 0 ,
+            'premium'=>($request->preminum == "on") ? 1 : 0 ,
+            'delivery'=>($request->delivery == "on" ) ? 1 : 0 ,
+            'quality'=>($request->quality == "on") ? 1 : 0 ,
             'status'=>$request->status,
             'category_id'=>$request->category_id,
             'city'=>$request->city,
             'slug'=>Str::slug($request->title)
-            
-            
         ];
 
-          $adv = Advertisements::create($data);  
+       // return $data;
+        $adv = Advertisements::create($data);  
+
         if($request->file('images')){
-            
             foreach($request->file('images') as $file){
                 $name = Str::slug( time().'.'.$file->getClientOriginalName()); 
                 $namePath= "AdversImg/".$name;
@@ -150,7 +138,8 @@ class AdvertisementController extends Controller
             'title'=>$request->title,
             'desc'=>$request->desc,
             'price'=>$request->price,
-            'marka'=>$request->marka,
+            'vip'=>$request->vip = "on"? 1 : 0 ,
+            'premuim'=>$request->vip = "on"? 1 : 0 ,
             'status'=>$request->status,
             'city'=>$request->city,
             'slug'=>Str::slug($request->title)

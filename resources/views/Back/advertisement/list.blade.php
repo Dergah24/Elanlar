@@ -21,7 +21,7 @@
                                 <th>Kateqoriya</th>
                                 <th>Qiyməti</th>
                                 <th>Şəhər</th>
-                                <th>Marka</th>
+                               
                                 {{-- <th>Status</th> --}}
                                 <th>Əməliyyat</th>
 
@@ -35,7 +35,7 @@
                                 <td>{{ $advertisement->categoryName }}</td>
                                 <td>{{ $advertisement->price }}</td>
                                 <td>{{ $advertisement->city }}</td>
-                                <td>{{ $advertisement->marka }}</td>
+                                
                                 {{-- <td> <input name="main" type="checkbox" @if($category->main == 1) checked @endif data-plugin="switchery" data-switchery="true"
                                     style="display: none;"></td> --}}
                                <td>
@@ -72,7 +72,7 @@
                                 <th>Kateqoriya</th>
                                 <th>Qiyməti</th>
                                 <th>Şəhər</th>
-                                <th>Marka</th>
+                                
                                 {{-- <th>Status</th> --}}
                                 <th>Əməliyyat</th>
 

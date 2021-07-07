@@ -22,13 +22,13 @@ class CreateAdvertisementsTable extends Migration
             $table->longText('desc');
             $table->string('city');
             $table->string('price');
-            $table->string('marka')->nullable();
-            $table->integer('delivery')->default(0);
             $table->string('tel')->nullable();
             $table->string('mail')->nullable();
             $table->string('status');
-            $table->longText('images')->nullable();
+            $table->integer('delivery')->default(0);
             $table->integer('quality')->default(0);
+            $table->integer('vip')->default(0);
+            $table->integer('premium')->default(0);
             $table->string('slug');
             $table->timestamps();
         });

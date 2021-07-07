@@ -17,6 +17,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories  = Category::all();
+        // return  $allCategories = Category::pluck('title','id')->all();
         return view('Back.category.list',compact('categories'));
     }
 
@@ -27,7 +28,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories  = Category::all();
+        
+            $categories  = Category::with('categories.categories')->where('parent_id',0)->get();
         return view('Back.category.create',compact('categories'));
     }
 
