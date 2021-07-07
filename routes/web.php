@@ -32,9 +32,7 @@ Route::group(['middleware'=>['auth'],'prefix'=>'admin'], function(){
     Route::resource('category',CategoryController::class);
 
     Route::resource('advertisement',AdvertisementController::class);
-
-    Route::get('Gozlemede',[AdvertisementController::class,'status1'])->name('status1');
-    Route::get('Tesdiqlendi',[AdvertisementController::class,'status2'])->name('status2');
-    Route::get('Tesdiqlenmedi',[AdvertisementController::class,'status3'])->name('status3');
+    Route::post('/deleteImage',[AdvertisementController::class,'deleteImage'])->name('deleteImage');
+    
 
 });

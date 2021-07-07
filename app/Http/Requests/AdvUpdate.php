@@ -28,7 +28,7 @@ class AdvUpdate extends FormRequest
             'title'=>'required|min:3',
             'category_id'=>'required',
             'desc'=>'required|min:5',
-            'marka'=>'required|min:3',
+            
             'city'=>'required',
             'price'=>'required',
             
@@ -43,7 +43,6 @@ class AdvUpdate extends FormRequest
             'title'=>'Elan adı',
             'category_id'=>'Kateqoriya',
             'desc'=>'Məzmun',
-            'marka'=>'Marka',
             'city'=>'Şəhər',
             'price'=>'Qiymət',
            

@@ -114,7 +114,7 @@
                       <span class="site-menu-title">Yeni  Elanlar Yarat</span>
                     </a>
                   </li>
-                  <li class="site-menu-item">
+                  {{--  <li class="site-menu-item">
                     <a href="{{ route('status1') }}">
                       <span class="site-menu-title">Yoxlanışda olan elanlar</span>
                     </a>
@@ -130,7 +130,7 @@
                     <a href="{{ route('status3') }}">
                       <span class="site-menu-title">Qəbul edilməyən elanlar</span>
                     </a>
-                  </li>
+                  </li>  --}}
 
 
                 </ul>

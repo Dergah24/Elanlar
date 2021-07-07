@@ -21,8 +21,19 @@
                     <select name="parent_id" class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example">
                       <option  value="0" selected>Üst cateqoriya secin</option>
                       @foreach ($categories as $category)
-                        <option @if($thisCategory->parent_id == $category->id) selected @endif value="{{ $category->id }}">{{ $category->title }}</option>
-                    @endforeach
+                      <option style="font-size: 24px;" value="{{ $category->id }}">{{ $category->title }}</option>
+
+                      @if(count($category->categories)>0)
+                       @foreach ($category->categories as $childCategory)
+                          <option style="font-size: 20px;" value="{{ $childCategory->id }}">--{{ $childCategory->title }}</option>
+                          @if(count($childCategory->categories)>0)
+                              @foreach ($childCategory->categories as $childCategory)
+                              <option style="font-size:15px" value="{{ $childCategory->id }}">----{{ $childCategory->title }}</option>
+                              @endforeach
+                          @endif
+                          @endforeach
+                      @endif
+                      @endforeach
                       </select>
                       
                 </div>

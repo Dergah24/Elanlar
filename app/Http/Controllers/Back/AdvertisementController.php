@@ -21,8 +21,8 @@ class AdvertisementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __construct() {
-       
-        View::share('categories',Category::all());
+      
+        View::share('categories', Category::with('categories.categories')->where('parent_id',0)->get());
     }
     public function index()
     {
@@ -105,6 +105,7 @@ class AdvertisementController extends Controller
     public function edit($id)
     {
         $thisAdvertisement   = Advertisements::whereId($id)->first();
+        
         $images =  adv_image::where('advertisement_id',$id)->get();
        return view('Back.advertisement.update',compact('thisAdvertisement','images'));
     }
@@ -119,33 +120,23 @@ class AdvertisementController extends Controller
     public function update(AdvUpdate $request, $id)
     {
        
-        if($request->quality == "on"){
-            $data =[ 'quality'=>1];
-        }else{
-            $data =[ 'quality'=>0];
-        }
-
-        if($request->delivery == "on"){
-            $data =[ 'delivery'=>1];
-        }else{
-            $data =[ 'delivery'=>0];
-        }
-
-       
         $data = [
             'user_id'=>Auth::user()->id,
             'category_id'=>$request->category_id,
             'title'=>$request->title,
             'desc'=>$request->desc,
             'price'=>$request->price,
-            'vip'=>$request->vip = "on"? 1 : 0 ,
-            'premuim'=>$request->vip = "on"? 1 : 0 ,
+            'vip'=>($request->vip == "on") ? 1 : 0 ,
+            'premium'=>($request->preminum == "on") ? 1 : 0 ,
+            'delivery'=>($request->delivery == "on" ) ? 1 : 0 ,
+            'quality'=>($request->quality == "on") ? 1 : 0 ,
             'status'=>$request->status,
             'city'=>$request->city,
             'slug'=>Str::slug($request->title)
         ];
 
-          $adv = Advertisements::whereId($id)->update($data);  
+        $adv = Advertisements::whereId($id)->update($data);  
+        
         if($request->file('images')){
             
             foreach($request->file('images') as $file){
@@ -177,5 +168,16 @@ class AdvertisementController extends Controller
        }
        $adv->delete();
        return  redirect()->back();
+    }
+
+    
+    public function deleteImage(){
+      $data =  adv_image::whereId(request()->post('img'))->first();
+      unlink(adv_image::whereId(request()->post('img'))->value('title'));
+      $delete =  $data->delete();
+       if($delete){
+            return response(true);
+        }
+        
     }
 }

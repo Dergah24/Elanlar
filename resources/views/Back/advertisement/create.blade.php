@@ -24,17 +24,27 @@
                             <select name="category_id" class="form-select form-select-lg mb-3 form-control"
                                 aria-label=".form-select-lg example">
 
-                                @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->title }}</option>
-                                @endforeach
+                                 @foreach ($categories as $category)
+                                 <option style="font-size: 24px;" value="{{ $category->id }}">{{ $category->title }}</option>
+     
+                                 @if(count($category->categories)>0)
+                                  @foreach ($category->categories as $childCategory)
+                                     <option style="font-size: 20px;" value="{{ $childCategory->id }}">--{{ $childCategory->title }}</option>
+                                     @if(count($childCategory->categories)>0)
+                                         @foreach ($childCategory->categories as $childCategory)
+                                         <option style="font-size:15px" value="{{ $childCategory->id }}">----{{ $childCategory->title }}</option>
+                                         @endforeach
+                                     @endif
+                                     @endforeach
+                                 @endif
+                                 @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="mb-3 mb-20">
                         <label for="exampleInputEmail1" class="form-label">Məzmun <span
                                 style="color: red;font-size: 18px;bold">{{ $errors->first('desc') }}</span></label>
-                        <textarea name="desc" id="" class="form-control" cols="30"
-                            rows="10">{{ old('desc') }}</textarea>
+                        <textarea name="desc" id="mytextarea" class="form-control mytextarea" cols="30" rows="10" style="height:300px">{{ old('desc') }}</textarea>
                     </div>
                     <div class="row mb-20">
                         <div class="mb-3 col-md-6">
@@ -73,7 +83,7 @@
                     </div>
                     <div class="mb-3 col-md-2">
                         <label for="preminum" class="form-label">Premium ?</label>
-                        <input name="preminum" type="checkbox" data-plugin="switchery" data-switchery="true"
+                        <input name="premium" type="checkbox" data-plugin="switchery" data-switchery="true"
                         style="display: none;">
                     </div>
                     <div class="mb-3 col-md-2">
@@ -115,4 +125,11 @@
         <!-- End Panel Static Labels -->
     </div>
 </div>
+
+<script>
+ $(document).ready(function () {
+        $('#editor').ckeditor();
+    });
+
+</script>
 @endsection

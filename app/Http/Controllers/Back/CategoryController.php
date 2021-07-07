@@ -77,7 +77,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $thisCategory = Category::where('id',$id)->first();
-        $categories = Category::all();
+        $categories  = Category::with('categories.categories')->where('parent_id',0)->get();
         return view('Back.category.update',compact('thisCategory','categories'));
     }
 

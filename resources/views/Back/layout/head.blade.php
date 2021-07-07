@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta name="description" content="bootstrap admin template">
   <meta name="author" content="{{ Auth::user()->name }}">
+  <meta name="csrf-token" content="{{ csrf_token() }}" />
 
   <title>{{ config('app.name') }}</title>
 
@@ -44,6 +45,13 @@
   <script src="{{ asset('Back/global/vendor/breakpoints/breakpoints.min599c.js') }}"></script>
     {{--Ckeditor--}}
     <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+      tinymce.init({
+        selector: '.mytextarea'
+     
+      });
+    </script>
 
     <script>
     Breakpoints();
