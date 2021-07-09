@@ -103,37 +103,15 @@
 
               </li>
               <li class="site-menu-item has-sub">
-                <a href="#">
+                <a href="{{ route('advertisement.index') }}">
                                   <i class="site-menu-icon wb-layout" aria-hidden="true"></i>
                                   <span class="site-menu-title">Elanlar</span>
                                           <span class="site-menu-arrow"></span>
                               </a>
-                <ul class="site-menu-sub">
-                  <li class="site-menu-item">
-                    <a href="{{ route('advertisement.index') }}">
-                      <span class="site-menu-title">Yeni  Elanlar Yarat</span>
-                    </a>
-                  </li>
-                  {{--  <li class="site-menu-item">
-                    <a href="{{ route('status1') }}">
-                      <span class="site-menu-title">Yoxlanışda olan elanlar</span>
-                    </a>
-                  </li>
+              
+                 
 
-                  <li class="site-menu-item">
-                    <a href="{{ route('status2') }}">
-                      <span class="site-menu-title">Dərc edilən elanlar</span>
-                    </a>
-                  </li>
-
-                  <li class="site-menu-item">
-                    <a href="{{ route('status3') }}">
-                      <span class="site-menu-title">Qəbul edilməyən elanlar</span>
-                    </a>
-                  </li>  --}}
-
-
-                </ul>
+               
               </li>
 
 

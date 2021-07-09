@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Back;
 
+use App\Models\City;
 use App\Models\Category;
 use App\Models\adv_image;
 use Illuminate\Support\Str;
@@ -21,13 +22,14 @@ class AdvertisementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function __construct() {
-      
-        View::share('categories', Category::with('categories.categories')->where('parent_id',0)->get());
+        $categories =  Category::with('categories.categories')->where('parent_id',0)->get();
+        $cities = City::all();
+        View::share(compact('categories','cities'));
     }
     public function index()
     {
-        $advertisements  = Advertisements::orderBy('created_at','asc')->get();
-       return view('Back.advertisement.list',compact('advertisements'));
+           $advertisements  = Advertisements::all();
+      return view('Back.advertisement.list',compact('advertisements'));
     }
 
     /**

@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryStore;
 
 class CategoryController extends Controller
 {
@@ -39,10 +40,11 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryStore $request)
     {
         if($request->file('image')){
-           $name = $request->image->getClientOriginalName();
+          // $name = $request->file('image')->getClientOriginalName();
+           $name = Str::slug( time().'.'.$request->file('image')->getClientOriginalName()); 
            $namePath = 'categoriIcon/'.$name;
            $request->image->move(public_path('categoriIcon/',$name));
        }
@@ -91,7 +93,7 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         if($request->file('image')){
-            $name = $request->image->getClientOriginalName();
+            $name = $request->file('image')->getClientOriginalName();
             $namePath = 'categoriIcon/'.$name;
             $request->image->move(public_path('categoriIcon/',$name));
             $data = ['image'=>$namePath];
@@ -117,6 +119,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::whereId($id)->first();
+
+        $category->delete();
+        return redirect()->back();
     }
 }

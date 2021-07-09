@@ -29,6 +29,8 @@ class CreateAdvertisementsTable extends Migration
             $table->integer('quality')->default(0);
             $table->integer('vip')->default(0);
             $table->integer('premium')->default(0);
+            $table->timestamps('vip_end')->nullable();
+            $table->timestamps('premium_end')->nullable();
             $table->string('slug');
             $table->timestamps();
         });

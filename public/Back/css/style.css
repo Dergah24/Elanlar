@@ -1,0 +1,11 @@
+.option-tree{
+    font-weight: 500;
+    font-size: 15px;
+
+}
+
+.this-reduire:after {
+    content: "✭";
+    white-space: pre;
+    color: red;
+  }

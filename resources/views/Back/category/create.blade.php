@@ -1,6 +1,8 @@
 @extends('Back.layout.master')
 @section('content')
-
+<style>
+  
+</style>
 <div class="row">
     <div class="col-md-12">
         <!-- Panel Static Labels -->
@@ -21,21 +23,23 @@
                         <label for="exampleDataList" class="form-label">Üst kateqoriya </label>
                         <select name="parent_id" class="form-select form-select-lg mb-3 form-control"
                             aria-label=".form-select-lg example">
-                            <option value="0" selected>Üst cateqoriya secin</option>
+                            <option value="0" selected disabled>Üst cateqoriya secin</option>
                             @foreach ($categories as $category)
-                            <option style="font-size: 24px;" value="{{ $category->id }}">{{ $category->title }}</option>
+                            <option class="option-tree" value="{{ $category->id }}">{{ $category->title }}</option>
 
                             @if(count($category->categories)>0)
                              @foreach ($category->categories as $childCategory)
-                                <option style="font-size: 20px;" value="{{ $childCategory->id }}">--{{ $childCategory->title }}</option>
+                             
+                                <option  class="option-tree" value="{{ $childCategory->id }}">&nbsp;&nbsp;&nbsp;&nbsp;{{ $childCategory->title }}</option>
                                 @if(count($childCategory->categories)>0)
                                     @foreach ($childCategory->categories as $childCategory)
-                                    <option style="font-size:15px" value="{{ $childCategory->id }}">----{{ $childCategory->title }}</option>
+                                    <option disabled class="option-tree" value="{{ $childCategory->id }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $childCategory->title }}</option>
                                     @endforeach
                                 @endif
                                 @endforeach
                             @endif
                             @endforeach
+
                         </select>
                     </div>
                     <div class="mb-3 form-check">

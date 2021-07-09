@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="{{ asset('Back/global/fonts/web-icons/web-icons.min599c.css') }}">
   <link rel="stylesheet" href="{{ asset('Back/global/fonts/brand-icons/brand-icons.min599c.css') }}">
   <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic">
-
+  <link rel="stylesheet" href="{{ asset('Back/css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 {{--    Data table--}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
@@ -46,12 +46,7 @@
     {{--Ckeditor--}}
     <script src="https://cdn.ckeditor.com/ckeditor5/28.0.0/classic/ckeditor.js"></script>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-    <script>
-      tinymce.init({
-        selector: '.mytextarea'
-     
-      });
-    </script>
+   
 
     <script>
     Breakpoints();

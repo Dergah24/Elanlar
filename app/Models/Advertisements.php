@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\adv_image;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Advertisements extends Model
 {
@@ -16,7 +17,7 @@ class Advertisements extends Model
        }
 
     public  function images(){
-        return $this->hasMany(adverImages::class);
+        return $this->hasMany(adv_images::class);
     }
 
     public function getCategoryNameAttribute(){
