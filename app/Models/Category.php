@@ -11,7 +11,7 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = ['title','parent_id','image','slug','main'];
-    // protected $appends = ['parent_name'];
+    protected $appends = ['parent_name'];
 
     /**
      * Get the user that owns the Category
@@ -25,6 +25,17 @@ class Category extends Model
         return $this->hasMany(Category::class,'parent_id');
     }
 
+    // protected $appends = ['parent_name'];
+
+    public function parent(){
+        return $this->belongsTo(Category::class,'parent_id');
+    }
+
+
+    public function getParentNameAttribute(){
+        return $this->parent()->value('title');
+    }
+   
    
   
     

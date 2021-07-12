@@ -20,7 +20,7 @@ class CreateAdvertisementsTable extends Migration
             $table->integer('category_id');
             $table->string('title');
             $table->longText('desc');
-            $table->string('city');
+            $table->integer('city_id');
             $table->string('price');
             $table->string('tel')->nullable();
             $table->string('mail')->nullable();
@@ -29,8 +29,8 @@ class CreateAdvertisementsTable extends Migration
             $table->integer('quality')->default(0);
             $table->integer('vip')->default(0);
             $table->integer('premium')->default(0);
-            $table->timestamps('vip_end')->nullable();
-            $table->timestamps('premium_end')->nullable();
+            $table->date('vip_end')->nullable();
+            $table->date('premium_end')->nullable();
             $table->string('slug');
             $table->timestamps();
         });

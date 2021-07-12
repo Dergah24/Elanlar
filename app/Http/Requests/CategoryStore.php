@@ -25,7 +25,7 @@ class CategoryStore extends FormRequest
     {
         return [
            'title'=>'required|min:3',
-           'image'=>'required|mimes:png,svg'
+           'image'=>'mimes:png,svg'
         ];
     }
 

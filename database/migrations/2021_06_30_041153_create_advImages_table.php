@@ -13,7 +13,7 @@ class CreateAdvImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('adv_images', function (Blueprint $table) {
+        Schema::create('advimages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('advertisement_id');
             $table->string('title');
@@ -28,6 +28,6 @@ class CreateAdvImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('adv_images');
+        Schema::dropIfExists('advimages');
     }
 }

@@ -83,7 +83,7 @@
                                      </div>
                               </div>
                               <div class="mb-3 col-md-3">
-                                         <label for="preminum" class="form-label">Premium ?</label>
+                                         <label for="premium" class="form-label">Premium ?</label>
                                      <div >
                                          <input name="premium" type="checkbox" data-plugin="switchery" data-switchery="true"  class="form-control" style="display: none;">
                                      </div>

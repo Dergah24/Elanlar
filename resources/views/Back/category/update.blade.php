@@ -58,7 +58,7 @@
                        <input name="image"  type="file" id="exampleInputPassword1">
                       </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3" style=" margin: 26px 0 0 80px;">
                       <img src="{{ asset($thisCategory->image) }}" class="img-fluid " width="100px" height="100px" alt="">
                     </div>
                   </div>

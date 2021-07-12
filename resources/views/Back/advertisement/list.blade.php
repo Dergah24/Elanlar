@@ -34,7 +34,7 @@
                                 <td>{{ $advertisement->title }}</td>
                                 <td>{{ $advertisement->categoryName }}</td>
                                 <td>{{ $advertisement->price }}</td>
-                                <td>{{ $advertisement->city }}</td>
+                                <td>{{ $advertisement->city['name'] }}</td>
                                 
                                 {{-- <td> <input name="main" type="checkbox" @if($category->main == 1) checked @endif data-plugin="switchery" data-switchery="true"
                                     style="display: none;"></td> --}}

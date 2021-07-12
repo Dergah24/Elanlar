@@ -44,16 +44,16 @@ class CategoryController extends Controller
     {
         if($request->file('image')){
           // $name = $request->file('image')->getClientOriginalName();
-           $name = Str::slug( time().'.'.$request->file('image')->getClientOriginalName()); 
+             $name =Str::slug( time().''.$request->image->getClientOriginalName()); 
            $namePath = 'categoriIcon/'.$name;
-           $request->image->move(public_path('categoriIcon/',$name));
+           $request->image->move(public_path('categoriIcon/'),$name);
        }
 
        Category::create([
         'title'=>$request->title,
         'parent_id'=>$request->parent_id ? $request->parent_id : 0,
         'main'=>$request->main =="on" ? 1 : 0,
-        'image'=>$namePath,
+        'image'=>   isset($namePath) ? $namePath  : " " ,
         'slug'=>Str::slug($request->title)
        ]);
 
@@ -78,7 +78,7 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $thisCategory = Category::where('id',$id)->first();
+        $thisCategory = Category::where('id',$id)->with('categories')->first();
         $categories  = Category::with('categories.categories')->where('parent_id',0)->get();
         return view('Back.category.update',compact('thisCategory','categories'));
     }
