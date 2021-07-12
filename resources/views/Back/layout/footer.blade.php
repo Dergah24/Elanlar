@@ -1,12 +1,17 @@
 
   <!-- Footer -->
-  <footer class="site-footer">
+  <footer class="site-footer"> 
+    @jquery
+@toastr_js
+@toastr_render
+
     <div class="site-footer-legal">© {{ date('Y') }} <a href="https://jedai.az/az">{{ config('app.name') }}</a></div>
     <div class="site-footer-right">
       Crafted with <i class="red-600 wb wb-heart"></i> by <a href="https://jedai.az/az">JedaAi</a>
     </div>
   </footer>
   <!-- Core  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js" integrity="sha512-VQQXLthlZQO00P+uEu4mJ4G4OAgqTtKG1hri56kQY1DtdLeIqhKUp9W/lllDDu3uN3SnUNawpW7lBda8+dSi7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="{{ asset('Back/global/vendor/babel-external-helpers/babel-external-helpers599c.js') }}"></script>
   <script src="{{ asset('Back/global/vendor/jquery/jquery.min599c.js') }}"></script>
   <script src="{{ asset('Back/global/vendor/popper-js/umd/popper.min599c.js') }}"></script>

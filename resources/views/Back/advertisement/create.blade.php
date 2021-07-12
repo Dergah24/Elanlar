@@ -13,7 +13,7 @@
                 <h3 class="panel-title">Elan</h3>
             </div>
             <div class="panel-body container-fluid">
-                <form method="post" action="{{ route('advertisement.store') }}"enctype="multipart/form-data" >
+                <form id="my-awesome-dropzone" method="post" action="{{ route('advertisement.store') }}"enctype="multipart/form-data" >
                     @csrf
                     <div class="row">
                         <div class="col-md-12">
@@ -102,8 +102,8 @@
                           aria-label=".form-select-lg example">
                           <option value="1">Gözləmədə</option>
                           <option value="2">Təstiqləndi </option>
-                          <option value="3">Rədedildi</option>
-                          <option value="4">Vaxdi bitmis</option>
+                          <option value="3">Rədd edildi</option>
+                          <option value="4">Vaxtı bitmiş</option>
                       </select>
                   </div>
                   </div>
@@ -112,7 +112,7 @@
                             <div class="col-md-12">
                                 <div class="col-12">
                                     <label  class="form-label this-reduire">Elan şəkilləri
-                                        <span
+                                      <span
                                             style="color: red;font-size: 18px;bold">{{ $errors->first('image') }}</span>
                                     </label>
                                 </div>

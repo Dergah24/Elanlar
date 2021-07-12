@@ -29,7 +29,9 @@ class AdvertisementController extends Controller
     }
     public function index()
     {
-             $advertisements  = Advertisements::with('images')->get();
+           
+      $advertisements  = Advertisements::with('images')->get();
+             
       return view('Back.advertisement.list',compact('advertisements'));
     }
 
@@ -84,6 +86,7 @@ class AdvertisementController extends Controller
                 ]);
             }
         }
+        toastr()->success('Elan elave edildi');
 
         return  redirect()->route('advertisement.index');
      
@@ -154,6 +157,7 @@ class AdvertisementController extends Controller
                 ]);
             }
         }
+        toastr()->success('Elan redaktə edildi');
 
         return  redirect()->route('advertisement.index');
     }
@@ -172,6 +176,9 @@ class AdvertisementController extends Controller
            unlink($dile);
        }
        $adv->delete();
+
+       toastr()->success('Elan slindi');
+
        return  redirect()->back();
     }
 
@@ -181,6 +188,8 @@ class AdvertisementController extends Controller
       unlink(adv_image::whereId(request()->post('img'))->value('title'));
       $delete =  $data->delete();
        if($delete){
+        toastr()->success('Şəkil elave edildi');
+
             return response(true);
         }
         

@@ -79,7 +79,7 @@
                             <label for="exampleDataList" class="form-label ">Şəhər </label>
                             <select name="city" class="form-select form-select-lg mb-3 form-control" aria-label=".form-select-lg example">
                                 @foreach ($cities as  $city)
-                                 <option @if($thisAdvertisement->city == $city->id) selected @endif value="{{ $city->id }}">{{ $city->name }}
+                                 <option @if($thisAdvertisement->city->id == $city->id) selected @endif value="{{ $city->id }}">{{ $city->name }}
                                 @endforeach
                             </select>
                         </div>
@@ -118,8 +118,8 @@
                             <select name="status" class="form-select form-select-lg mb-3 form-control" >
                                 <option @if($thisAdvertisement->satus ==1 ) slected @endif value="1">Gözləmədə</option>
                                 <option @if($thisAdvertisement->satus ==2 ) slected @endif value="2">Təstiqləndi </option>
-                                <option @if($thisAdvertisement->satus ==3 ) slected @endif value="3">Rədedildi</option>
-                                <option @if($thisAdvertisement->satus ==4 ) slected @endif value="4">Vaxdi bitmis</option>
+                                <option @if($thisAdvertisement->satus ==3 ) slected @endif value="3">Rədd edildi</option>
+                                <option @if($thisAdvertisement->satus ==4 ) slected @endif value="4">Vaxdı bitmiş</option>
                             </select>
                         </div>
                     </div>
@@ -176,6 +176,7 @@
         },
         success:function(response){
           console.log(response);
+          
             $(card).remove();
 
         },

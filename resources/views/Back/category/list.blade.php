@@ -35,12 +35,31 @@
                                     style="display: none;"></td> --}}
                                 <td>
                                      <a class="btn btn-outline-warning" href="{{ route('category.edit',$category->id) }}"><i class="fas fa-pen"></i> Redaktə</a>
-                                     <a class="btn btn-outline-danger" href="{{ route('categoryDestroy',$category->id) }}"><i class="fas fa-pen"></i> Sil</a>
-
-                                    
+                                     {{-- <a class="btn btn-outline-danger" href="{{ route('categoryDestroy',$category->id) }}"><i class="fas fa-pen"></i> Sil</a> --}}
+                                     <button class="btn btn-outline-danger"   data-toggle="modal" data-target="#exampleModal{{ $category->id }}"><i class="fas fa-pen"></i> Sil</button>
                                 </td>
-                                
                             </tr>
+
+
+                            <div class="modal fade" id="exampleModal{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                             <span style="color: red">Kateqoriya Silinsin?</span>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button"  class="btn btn-secondary" data-dismiss="modal">Imtina</button>
+                                            <a  href="{{ route('categoryDestroy',$category->id) }}" class="btn btn-danger">Sil</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             @endforeach                              
                                                   
                         </tbody>

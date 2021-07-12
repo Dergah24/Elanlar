@@ -57,6 +57,7 @@ class CategoryController extends Controller
         'slug'=>Str::slug($request->title)
        ]);
 
+       toastr()->success('Kateqoriya əlavə edildi');
        return redirect()->route('category.index');
     }
 
@@ -107,7 +108,8 @@ class CategoryController extends Controller
         ];
  
         Category::whereId($id)->update($data);
- 
+        toastr()->success('Kateqoriya redaktə edildi');
+
         return redirect()->route('category.index');
     }
 
@@ -122,6 +124,7 @@ class CategoryController extends Controller
         $category = Category::whereId($id)->first();
 
         $category->delete();
+        toastr()->success('Kateqoriya silindi');
         return redirect()->back();
     }
 }
