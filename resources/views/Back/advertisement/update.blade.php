@@ -108,7 +108,7 @@
                                 <div class="mb-3 col-md-3">
                                     <label class="form-label">Vip ? </label>
                                     <div>
-                                        <input @if($thisAdvertisement->premium ) checked @endif  name="premium" type="checkbox" data-plugin="switchery" data-switchery="true"   style="display: none;">
+                                        <input @if($thisAdvertisement->vip ) checked @endif  name="vip" type="checkbox" data-plugin="switchery" data-switchery="true"   style="display: none;">
                                     </div>
                               </div>
                             </div>
@@ -190,7 +190,9 @@
         .create( document.querySelector( '#editor' ) )
         .catch( error => {
             console.error( error );
-        } );
+        }
+        
+         );
 </script>
 
 @endsection

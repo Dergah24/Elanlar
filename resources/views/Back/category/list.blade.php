@@ -63,15 +63,15 @@
                             @endforeach                              
                                                   
                         </tbody>
-                        <tfoot>
+                        {{--  <tfoot>
                             <tr>
                                 <th>Kateqoriya</th>
                                 <th>Üst kateqoriya</th>
                                 {{-- <th>Status</th> --}}
-                                <th>Əməliyyat</th>
-                                
-                            </tr>
-                        </tfoot>
+                                {{--  <th>Əməliyyat</th>
+                                  --}}
+                            {{--  </tr>
+                        </tfoot>  --}}  
                     </table>
                   
                   

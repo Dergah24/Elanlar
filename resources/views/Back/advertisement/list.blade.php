@@ -14,7 +14,7 @@
                </div>
                <div class="row">
                    <div class="col-xl-12">
-                    <table id="example" class="table table-striped table-hover" style="width:100%">
+                    <table id="example" class="table   table-striped table-hover" >
                         <thead>
                             <tr>
                                 <th>Elan Adı</th>
@@ -27,7 +27,7 @@
 
                             </tr>
                         </thead>
-                        <tbody>
+                        {{--  <tbody>  --}}
 
                              @foreach ($advertisements as $advertisement )
                             <tr>
@@ -65,19 +65,19 @@
                             </div>
                             @endforeach
 
-                        </tbody>
-                        <tfoot>
-                            <tr>
+                        {{--  </tbody>  --}}
+                        {{--  <tfoot>  --}}
+                            {{--  <tr>
                                 <th>Elan Adı</th>
                                 <th>Kateqoriya</th>
                                 <th>Qiyməti</th>
                                 <th>Şəhər</th>
                                 
                                 {{-- <th>Status</th> --}}
-                                <th>Əməliyyat</th>
+                                {{--  <th>Əməliyyat</th>  --}}
 
-                            </tr>
-                        </tfoot>
+                            {{--  </tr>    --}}
+                        {{--  </tfoot>  --}}
                     </table>
 
 

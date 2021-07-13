@@ -9,3 +9,15 @@
     white-space: pre;
     color: red;
   }
+
+  .table th {
+      border-bottom: 0px !important;
+  }
+
+  table.dataTable.no-footer{
+      border-bottom: 0px !important;
+  }
+
+  .paginate_button .current{
+      background:linear-gradient(to bottom, rgb(90, 119, 84) 0%, #6e9c7d 100%) !important;
+  }

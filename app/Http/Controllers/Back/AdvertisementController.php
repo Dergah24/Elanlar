@@ -61,9 +61,9 @@ class AdvertisementController extends Controller
             'desc'=>$request->desc,
             'price'=>$request->price,
             'vip'=>($request->vip == "on") ? 1 : 0 ,
-            'vip_end'=>($request->vip == "on") ?  Carbon::now()  : 0 ,
+            'vip_end'=>($request->vip == "on") ?  Carbon::now()  : null ,
             'premium'=>($request->premium == "on") ? 1 : 0 ,
-            'premium_end'=>($request->premium == "on") ? Carbon::now() : 0 ,
+            'premium_end'=>($request->premium == "on") ? Carbon::now() : null ,
             'delivery'=>($request->delivery == "on" ) ? 1 : 0 ,
             'quality'=>($request->quality == "on") ? 1 : 0 ,
             'status'=>$request->status,
@@ -127,7 +127,7 @@ class AdvertisementController extends Controller
      */
     public function update(AdvUpdate $request, $id)
     {
-       
+       //return $request->all();
         $data = [
             'user_id'=>Auth::user()->id,
             'category_id'=>$request->category_id,
@@ -135,7 +135,11 @@ class AdvertisementController extends Controller
             'desc'=>$request->desc,
             'price'=>$request->price,
             'vip'=>($request->vip == "on") ? 1 : 0 ,
-            'premium'=>($request->preminum == "on") ? 1 : 0 ,
+            'vip_end'=>($request->vip == "on") ? Carbon::now() : null ,
+
+            'premium'=>($request->premium == "on") ? 1 : 0 ,
+            'premium_end'=>($request->premium == "on") ? Carbon::now() : null ,
+
             'delivery'=>($request->delivery == "on" ) ? 1 : 0 ,
             'quality'=>($request->quality == "on") ? 1 : 0 ,
             'status'=>$request->status,
@@ -184,11 +188,11 @@ class AdvertisementController extends Controller
 
     
     public function deleteImage(){
-      $data =  adv_image::whereId(request()->post('img'))->first();
-      unlink(adv_image::whereId(request()->post('img'))->value('title'));
+      $data =  advimage::whereId(request()->post('img'))->first();
+      unlink(advimage::whereId(request()->post('img'))->value('title'));
       $delete =  $data->delete();
        if($delete){
-        toastr()->success('Şəkil elave edildi');
+       
 
             return response(true);
         }
