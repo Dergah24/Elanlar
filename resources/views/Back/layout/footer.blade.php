@@ -1,9 +1,9 @@
 
   <!-- Footer -->
   <footer class="site-footer"> 
-    {{-- @jquery
+    @jquery
 @toastr_js
-@toastr_render --}}
+@toastr_render
 
     <div class="site-footer-legal">© {{ date('Y') }} <a href="https://jedai.az/az">{{ config('app.name') }}</a></div>
     <div class="site-footer-right">

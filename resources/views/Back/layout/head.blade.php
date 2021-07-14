@@ -53,6 +53,6 @@
     Breakpoints();
   </script>
 
-{{-- @toastr_css --}}
+@toastr_css
 
 </head>

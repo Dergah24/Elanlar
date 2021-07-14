@@ -95,7 +95,7 @@ class AdvertisementController extends Controller
                  ]);
             }
         }
-      //  toastr()->success('Elan elave edildi');
+        toastr()->success('Elan elave edildi');
 
         return  redirect()->route('advertisement.index');
      
@@ -180,7 +180,7 @@ class AdvertisementController extends Controller
                 ]);
             }
         }
-        //toastr()->success('Elan redaktə edildi');
+        toastr()->success('Elan redaktə edildi');
 
         return  redirect()->route('advertisement.index');
     }
@@ -200,7 +200,7 @@ class AdvertisementController extends Controller
        }
        $adv->delete();
 
-      // toastr()->success('Elan slindi');
+     toastr()->success('Elan slindi');
 
        return  redirect()->back();
     }
