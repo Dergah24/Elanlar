@@ -31,10 +31,11 @@
                                 <option value="0" selected disabled>Kateqoriya seçin</option>
 
                                 @foreach ($categories as $category)
-                                 <option class="option-tree" value="{{ $category->id }}">{{ $category->title }}</option>
+                                 <option class="option-tree" disabled value="{{ $category->id }}">{{ $category->title }}</option>
                                  @if(count($category->categories)>0)
                                   @foreach ($category->categories as $childCategory)
-                                     <option class="option-tree" value="{{ $childCategory->id }}">&nbsp;&nbsp;&nbsp;&nbsp;{{ $childCategory->title }}</option>
+                                                                 
+                                  <option @if (count($childCategory->categories)>0)  disabled     @endif    class="option-tree" value="{{ $childCategory->id }}">&nbsp;&nbsp;&nbsp;&nbsp;{{ $childCategory->title }}</option>
                                      @if(count($childCategory->categories)>0)
                                          @foreach ($childCategory->categories as $childCategory)
                                          <option class="option-tree" value="{{ $childCategory->id }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ $childCategory->title }}</option>

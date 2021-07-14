@@ -19,12 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
+Route::middleware(['auth', 'admin'])->get('/admin', function () {
     return view('Back.index');
 
-})->name('dashboard');
+})->name('admin');
 
-Route::group(['middleware'=>['auth'],'prefix'=>'admin'], function(){
+Route::group(['middleware'=>['auth','admin'],'prefix'=>'admin'], function(){
      Route::get('categoryDestroy/{id}',[CategoryController::class,'destroy'])->name('categoryDestroy');
      Route::get('advertisementyDestroy/{id}',[AdvertisementController::class,'destroy'])->name('advertisementDestroy');
      Route::resource('category',CategoryController::class);
