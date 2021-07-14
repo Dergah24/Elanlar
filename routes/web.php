@@ -19,20 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/admin', function () {
     return view('Back.index');
 
 })->name('dashboard');
 
 Route::group(['middleware'=>['auth'],'prefix'=>'admin'], function(){
-        Route::get('categoryDestroy/{id}',[CategoryController::class,'destroy'])->name('categoryDestroy');
-        Route::get('advertisementyDestroy/{id}',[AdvertisementController::class,'destroy'])->name('advertisementDestroy');
-
-
-    Route::resource('category',CategoryController::class);
-
-    Route::resource('advertisement',AdvertisementController::class);
-    Route::post('/deleteImage',[AdvertisementController::class,'deleteImage'])->name('deleteImage');
-    
-
+     Route::get('categoryDestroy/{id}',[CategoryController::class,'destroy'])->name('categoryDestroy');
+     Route::get('advertisementyDestroy/{id}',[AdvertisementController::class,'destroy'])->name('advertisementDestroy');
+     Route::resource('category',CategoryController::class);
+     Route::resource('advertisement',AdvertisementController::class);
+     Route::post('/deleteImage',[AdvertisementController::class,'deleteImage'])->name('deleteImage');
 });

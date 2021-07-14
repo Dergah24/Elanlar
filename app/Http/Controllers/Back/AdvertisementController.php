@@ -14,7 +14,7 @@ use App\Http\Requests\AdvUpdate;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
-
+use Image;
 class AdvertisementController extends Controller
 {
     /**
@@ -75,18 +75,27 @@ class AdvertisementController extends Controller
        // return $data;
         $adv = Advertisements::create($data);  
 
-        if($request->file('images')){
-            foreach($request->file('images') as $file){
-                $name = Str::slug( time().'.'.$file->getClientOriginalName()); 
-                $namePath= "AdversImg/".$name;
-                $file->move(public_path("AdversImg/"),$name);
-                advimage::create([
+         if($request->file('images')){
+             foreach($request->file('images') as $file){
+                 $name =  time().'.'.$file->getClientOriginalName(); 
+                 $imgPath= "AdversImg/".$name;
+              
+                 $img       = Image::make( $file)->resize(500,500);
+       
+                 $img->text('Elanlar.az', 290, 450, function($font) {
+                 $font->file(public_path('\font\Gilroy-ExtraBold.otf'));
+                 $font->size(45);
+                 $font->color('#F85C70');
+                 })->save($imgPath,80);
+
+               
+                 advimage::create([
                     'advertisement_id'=>$adv->id,
-                    'title'=>$namePath
-                ]);
+                    'title'=>$imgPath
+                 ]);
             }
         }
-        toastr()->success('Elan elave edildi');
+      //  toastr()->success('Elan elave edildi');
 
         return  redirect()->route('advertisement.index');
      
@@ -152,16 +161,26 @@ class AdvertisementController extends Controller
         if($request->file('images')){
             
             foreach($request->file('images') as $file){
-                $name = Str::slug( time().'.'.$file->getClientOriginalName()); 
-                $namePath= "AdversImg/".$name;
-                $file->move(public_path("AdversImg/"),$name);
+                $name =  time().'.'.$file->getClientOriginalName(); 
+                 $imgPath= "AdversImg/".$name;
+              
+                 $img       = Image::make( $file)->resize(500,500);
+       
+                 $img->text('Elanlar.az', 290, 450, function($font) {
+                 $font->file(public_path('\font\Gilroy-ExtraBold.otf'));
+                 $font->size(45);
+                 $font->color('#F85C70');
+                 })->save($imgPath,80);
+
+
+
                 advimage::create([
                     'advertisement_id'=>$id,
-                    'title'=>$namePath
+                    'title'=>$imgPath
                 ]);
             }
         }
-        toastr()->success('Elan redaktə edildi');
+        //toastr()->success('Elan redaktə edildi');
 
         return  redirect()->route('advertisement.index');
     }
@@ -181,7 +200,7 @@ class AdvertisementController extends Controller
        }
        $adv->delete();
 
-       toastr()->success('Elan slindi');
+      // toastr()->success('Elan slindi');
 
        return  redirect()->back();
     }
