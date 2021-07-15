@@ -24,16 +24,16 @@ class CategoryStore extends FormRequest
     public function rules()
     {
         return [
-           'title'=>'required|min:3',
-           'image'=>'mimes:png,svg'
+            'title' => 'required|min:3',
+            'image' => 'mimes:png,svg',
         ];
     }
 
     public function attributes()
     {
         return [
-           'title'=>'Kateqoriya',
-           'image'=>'Şəkil'
+            'title' => 'Kateqoriya',
+            'image' => 'Şəkil',
         ];
     }
 }

@@ -25,27 +25,26 @@ class AdvUpdate extends FormRequest
     {
         return [
 
-            'title'=>'required|min:3',
-            'category_id'=>'required',
-            'desc'=>'required|min:5',
-            
-            'city'=>'required',
-            'price'=>'required',
-            
+            'title' => 'required|min:3',
+            'category_id' => 'required',
+            'desc' => 'required|min:5',
+
+            'city' => 'required',
+            'price' => 'required',
+
         ];
     }
-
 
     public function attributes()
     {
         return [
 
-            'title'=>'Elan adı',
-            'category_id'=>'Kateqoriya',
-            'desc'=>'Məzmun',
-            'city'=>'Şəhər',
-            'price'=>'Qiymət',
-           
+            'title' => 'Elan adı',
+            'category_id' => 'Kateqoriya',
+            'desc' => 'Məzmun',
+            'city' => 'Şəhər',
+            'price' => 'Qiymət',
+
         ];
     }
 }

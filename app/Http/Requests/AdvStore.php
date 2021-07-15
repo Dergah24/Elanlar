@@ -25,13 +25,13 @@ class AdvStore extends FormRequest
     {
         return [
 
-            'title'=>'required|min:3',
-            'category_id'=>'required',
-            'desc'=>'required|min:5',
-            
-            'city'=>'required',
-            'price'=>'required',
-            'images'=>'required',
+            'title' => 'required|min:3',
+            'category_id' => 'required',
+            'desc' => 'required|min:5',
+
+            'city' => 'required',
+            'price' => 'required',
+            'images' => 'required',
         ];
     }
 
@@ -39,13 +39,13 @@ class AdvStore extends FormRequest
     {
         return [
 
-            'title'=>'Elan adı',
-            'category_id'=>'Kateqoriya',
-            'desc'=>'Məzmun',
-            
-            'city'=>'Şəhər',
-            'price'=>'Qiymət',
-            'images'=>'Şəkil (lər)',
+            'title' => 'Elan adı',
+            'category_id' => 'Kateqoriya',
+            'desc' => 'Məzmun',
+
+            'city' => 'Şəhər',
+            'price' => 'Qiymət',
+            'images' => 'Şəkil (lər)',
 
         ];
     }

@@ -1,11 +1,12 @@
 @extends('Back.layout.master')
 
 <style>
-    .card img{
+    /* .card img{
         object-fit: cover;
         height: 200px;
+        width: auto;
        
-    }
+    } */
     .card i{
         position: absolute;
         top: 10px;
