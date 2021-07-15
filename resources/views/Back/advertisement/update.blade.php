@@ -186,13 +186,15 @@
 });
 </script>
 <script>
-    ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        }
+      ClassicEditor
+    .create( document.querySelector( '#editor' ),{
+            toolbar: [  '|',   'bulletedList', 'numberedList'],
+        } )
+
+         .catch( error => {
+             console.error( error );
+         } );
         
-         );
 </script>
 
 @endsection

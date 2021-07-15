@@ -133,10 +133,23 @@
 
 <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
 <script>
+    
     ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
+     
+        .create( document.querySelector( '#editor' ),{
+            toolbar: [  '|',   'bulletedList', 'numberedList'],
+        } )
+
+         .catch( error => {
+             console.error( error );
+         } );
+        
+        
+
+
 </script>
+
+</script>
+
+
 @endsection
