@@ -54,6 +54,7 @@ class AdvertisementController extends Controller
     public function store(AdvStore $request)
     {
         //return $request->all();
+
         $data = [
             'user_id' => Auth::user()->id,
             'cataegory_id' => $request->category_id,
@@ -66,6 +67,7 @@ class AdvertisementController extends Controller
             'premium_end' => ($request->premium == "on") ? Carbon::now() : null,
             'delivery' => ($request->delivery == "on") ? 1 : 0,
             'quality' => ($request->quality == "on") ? 1 : 0,
+            'adv_end' => now()->addDays(30),
             'status' => $request->status,
             'category_id' => $request->category_id,
             'city_id' => $request->city,

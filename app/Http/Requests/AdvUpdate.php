@@ -28,7 +28,6 @@ class AdvUpdate extends FormRequest
             'title' => 'required|min:3',
             'category_id' => 'required',
             'desc' => 'required|min:5',
-
             'city' => 'required',
             'price' => 'required',
 
